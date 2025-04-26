@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+</head>
+<body>
+    <form action="reg_post" method="post">
+        {% csrf_token %}
+        <label for="name"> Name: </label>
+        <input type="text" name="name" id="name">
+
+        <label for="phonenumber"> Phonenumber: </label>
+        <input type="text" name="phonenumber" id="phonenumber">
+
+        <label for="password"> Password: </label>
+        <input type="text" name="password" id="password">
+
+        <input type="submit" value="Apply">
+
+    </form>
+
+{% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+
+<script>
+    
+</script>
+
+</body>
+</html>

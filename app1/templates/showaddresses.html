@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show addresses</title>
+</head>
+<body>
+    {% for address in myuser.addresses.all %}
+    <address> {{ address.city }} - {{ address.country }} - {{ address.street }} </address>
+    {% endfor %}
+
+
+    <a href="/home">Back to Home</a>
+</body>
+</html>

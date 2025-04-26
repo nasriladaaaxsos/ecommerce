@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <h2>Hello {{ request.session.name }} </h2>
+
+    <a href="update">Update User</a>
+    <a href="addaddress">Add Address</a>
+    <a href="showaddresses">Show addresses</a>
+    <form action="logout" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+
+    <form action="deleteform" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete My account">
+    </form>
+
+
+    <table>
+        <th>
+            <td>ID</td>
+            <td>Name</td>
+           
+            <td>Delete User by ID</td>
+        </th>
+        <tr>
+            {% for user in users %}
+            <td> {{ user.id}} </td>
+            <td> {{  user.name}}</td>
+          
+            <td>
+                <form action="delete_user_by_id_form" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+            {% endfor %}
+    
+        
+    </table>
+ 
+</body>
+
+</html>

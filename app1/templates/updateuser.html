@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+</head>
+
+<body>
+    <form action="update_post" method="post">
+        {% csrf_token %}
+        <label for="name"> Name: </label>
+        <input type="text" name="new_name" id="name" value = '{{ user.name }}'>
+
+        <label for="phonenumber"> Phonenumber: </label>
+        <input type="text" name="new_phonenumber" id="phonenumber" value='{{ user.phonenumber }}'>
+
+        
+        <input type="hidden" name="user_id" value='{{ request.session.id }}' >
+
+        <input type="submit" value="Update">
+
+    </form>
+</body>
+
+</html>
