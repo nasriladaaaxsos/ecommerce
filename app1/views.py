@@ -9,18 +9,16 @@ def index(request):
 
 
 def login(request):
-    mylist = [  "Apple" , "strawberry" , "Lemon" ,"Blackberry"  , "Mango"  ]
+    # mylist = [  "Apple" , "strawberry" , "Lemon" ,"Blackberry"  , "Mango"  ]
 
-    for i in range ( 0, len(mylist), 1):
-        if mylist[i] is "Mango":
-            mylist.pop(i)
+    # for i in range ( 0, len(mylist), 1):
+    #     if mylist[i] is "Mango":
+    #         mylist.pop(i)
 
     context = {
         #key           #value
         "firstname" : "Mohammad",
         "lastname" : "Khaseeb",
-        "fruits" : mylist
-
     }
     return render(request , "login.html", context)   #render_template
     # return render_template("inde.html" , firstname="", lastname="")
